@@ -16,6 +16,8 @@ public:
         else if(count == 1) return "isosceles";
         else if(count == 0) return "scalene";
         else return "none";
+
+        
         
     }
 };
