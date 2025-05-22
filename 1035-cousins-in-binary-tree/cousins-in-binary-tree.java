@@ -21,7 +21,7 @@ class Solution {
     TreeNode yParent = null;
 
     public boolean isCousins(TreeNode root, int x, int y) {
-        dfs(root, null, 0, x, y);
+        dfs(root, root, 0, x, y);
         return xDepth == yDepth && xParent != yParent;
     }
 
