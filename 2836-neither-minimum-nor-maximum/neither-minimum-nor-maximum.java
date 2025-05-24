@@ -6,8 +6,8 @@ class Solution {
 
         for(int i=0; i< n;i++){
             if(nums[i] == nums[0] || nums[i] == nums[n-1]) continue;
-            res = nums[i];
+           return  res = nums[i];
         }
-        return res;
+        return 0;
     }
 }
