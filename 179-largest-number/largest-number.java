@@ -9,13 +9,13 @@ class Solution {
 
        Arrays.sort(nu, (a, b) -> (b + a).compareTo(a + b));
 
-        if(nu[0].equals("0")) return "0";
+        //if(nu[0].equals("0")) return "0";
 
         StringBuilder res = new StringBuilder();
 
         for(String str : nu){
             res.append(str);
         }
-        return res.toString();
+        return nu[0].equals("0") ? "0" : res.toString();
     }
 }
