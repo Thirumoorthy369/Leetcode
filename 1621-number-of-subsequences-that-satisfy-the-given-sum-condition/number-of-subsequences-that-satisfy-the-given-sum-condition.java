@@ -1,36 +1,26 @@
 class Solution {
     public int numSubseq(int[] nums, int target) {
-        int mod = 1_000_000_007;
         Arrays.sort(nums);
-        int left = 0, right = nums.length - 1;
-        int count = 0;
-
-        while (left <= right) {
-            if (nums[left] + nums[right] <= target) {
-                
-                count = (count + modPow(2, right - left, mod)) % mod;
+        int mod = 1000000007;
+        int n =nums.length;
+        int left=0;
+        int right = n-1;
+        int[] pw = new int[n];
+        pw[0] = 1;
+        for(int i=1  ; i<n ; i++){
+            pw[i] = (pw[i-1]*2)%mod;
+        }
+        int ans=0;
+        while(left<=right){
+            if(nums[left]+nums[right]<=target){
+                ans=(ans+pw[right-left])%mod;
                 left++;
-            } else {
+            }
+            else
                 right--;
-            }
+
         }
-
-        return count;
+        return ans;
     }
-
-   
-    private int modPow(int base, int exp, int mod) {
-        long result = 1;
-        long b = base;
-
-        while (exp > 0) {
-            if ((exp & 1) == 1) {
-                result = (result * b) % mod;
-            }
-            b = (b * b) % mod;
-            exp >>= 1;
-        }
-
-        return (int) result;
-    }
+    
 }
