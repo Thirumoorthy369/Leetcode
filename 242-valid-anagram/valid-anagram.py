@@ -1,15 +1,12 @@
-class Solution(object):
+class Solution:
     def isAnagram(self, s, t):
-        """
-        :type s: str
-        :type t: str
-        :rtype: bool
-        """
-        if len(s) != len(t):
+        if(len(s)!=len(t)):
             return False
-        l = "abcdefghijklmnopqrstuvwxyz"
-        for c in l:
-            if s.count(c) != t.count(c):
+        freq=[0]*26
+        for i in range(len(s)):
+            freq[ord(s[i])-ord('a')]+=1
+            freq[ord(t[i])-ord('a')]-=1
+        for c in freq:
+            if c!=0:
                 return False
-        return True
-        
+        return True        
